@@ -42,20 +42,19 @@ return [
         ],
         'owner' => [
             'driver' => 'session',
-            'provider' => 'owner'
+            'provider' => 'owner',
         ],
         'admin' => [
             'driver' => 'session',
-            'provider' => 'admin'
+            'provider' => 'admin',
         ],
         'staff' => [
             'driver' => 'session',
-            'provider' => 'staff'
+            'provider' => 'staff',
         ],
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
-            'hash' => false,
         ],
     ],
 
@@ -92,7 +91,7 @@ return [
         'staff' => [
             'driver' => 'eloquent',
             'model' => App\Staff::class,
-        ]
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -121,17 +120,17 @@ return [
             'expire' => 60,
         ],
         'owner' => [
-            'provider' => 'users',
+            'provider' => 'owner',
             'table' => 'password_resets',
             'expire' => 60,
         ],
         'admin' => [
-            'provider' => 'users',
+            'provider' => 'admin',
             'table' => 'password_resets',
             'expire' => 60,
         ],
         'staff' => [
-            'provider' => 'users',
+            'provider' => 'staff',
             'table' => 'password_resets',
             'expire' => 60,
         ],

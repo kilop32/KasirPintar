@@ -14,13 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/barang', function () {
+    return view('barang');
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/admin/login', 'adminlogin@login')->name('admin.login');
-Route::get('/admin/register', 'adminlogin@registerform')->name('admin.registerform');
-Route::get('/admin/login', 'adminlogin@loginform')->name('admin.loginform');
-Route::post('/admin/register', 'adminlogin@register')->name('admin.register');
+Route::post('/admin/login', 'adminlogin@login')->name('login');
+Route::post('register', 'adminlogin@register');
+Route::get('/public/register', 'formcontroller@registerform')->name('registerform');
+Route::get('/{roles}/login', 'formcontroller@loginview')->name('loginform');
+
 Route::get('/admin/home', 'adminlogin@index')->middleware('auth:admin');
 Route::get('/admin/logout', 'adminlogin@logout')->name('admin.logout');

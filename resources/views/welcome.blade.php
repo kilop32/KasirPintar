@@ -70,29 +70,41 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('admin.loginform') }}">Login</a>
+                        <a href="" data-toggle="modal" data-target="#myModal">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('admin.registerform') }}">Register</a>
+                            <a href="{{ route('registerform') }}">Register</a>
                         @endif
                     @endauth
                 </div>
             @endif
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
 
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Login Menu</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Login Sebagai </p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{route('loginform',['roles' => 'owner'])}}"><button type="button" class="btn btn-default" data-dismiss="modal">Owner</button></a>
+                        <a href="{{route('loginform',['roles' => 'admin'])}}"><button type="button" class="btn btn-default" data-dismiss="modal">Admin</button></a>
+                        <a href="{{route('loginform',['roles' => 'staff'])}}"><button type="button" class="btn btn-default" data-dismiss="modal">Staff</button></a>
+                    </div>
+                    </div>
+
+                </div>
+            </div>    
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Kasir Pintar
+                    
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <h3>Selamat Datang Di Kasir Pintar</h3>    
             </div>
         </div>
     </body>
